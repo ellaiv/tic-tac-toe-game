@@ -1,15 +1,15 @@
 import { useState } from "react";
 
 import GameBoard from "./components/GameBoard.jsx";
+import GameOver from "./components/GameOver.jsx";
 import Log from "./components/Log.jsx";
 import Player from "./components/Player.jsx";
-import GameOver from "./components/GameOver.jsx";
 import { WINNING_COMBINATIONS } from "./components/winning-combinations.js";
 
 const PLAYERS = {
-  X: 'Player 1',
-  O: 'Player 2'
-}
+  X: "Player 1",
+  O: "Player 2",
+};
 
 const INITIAL_GAME_BOARD = [
   [null, null, null],
@@ -44,12 +44,10 @@ function deriveWinner(gameBoard, players) {
   let winner;
 
   for (const combination of WINNING_COMBINATIONS) {
-    const firstSquareSymbol =
-      gameBoard[combination[0].row][combination[0].column];
+    const firstSquareSymbol = gameBoard[combination[0].row][combination[0].col];
     const secondSquareSymbol =
-      gameBoard[combination[1].row][combination[1].column];
-    const thirdSquareSymbol =
-      gameBoard[combination[2].row][combination[2].column];
+      gameBoard[combination[1].row][combination[1].col];
+    const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].col];
 
     if (
       firstSquareSymbol &&
